@@ -7,6 +7,11 @@ namespace Socket_Commons_Library
     public class Payload<T>
     {
         T data;
+
+        public Payload()
+        {
+
+        }
         public Payload(T dataObject)
         {
             this.data = dataObject;

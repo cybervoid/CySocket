@@ -3,18 +3,18 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Text;
+using Socket_Commons_Library;
 
 namespace CyClient
 {
     public class Client
     {
-        public static void Start()
+        public void Start<T>(IRequest<T> request)
         {
-            Start(SocketType.Stream, ProtocolType.Tcp);
+            Start(request, SocketType.Stream, ProtocolType.Tcp);
         }
 
-
-        public static void Start(SocketType socketType, ProtocolType protocolType)
+        public void Start<T>(IRequest<T> request, SocketType socketType, ProtocolType protocolType)
         {
             // Data buffer for incoming data.  
             byte[] bytes = new byte[1024];
@@ -35,7 +35,7 @@ namespace CyClient
                 {
                     sender.Connect(remoteEP);
                     Console.WriteLine($"Socket connected to {sender.RemoteEndPoint}");
-                    byte[] msg = Encoding.ASCII.GetBytes("this is the test <EOF>");
+                    byte[] msg = Encoding.ASCII.GetBytes($"{request.ToString()}<EOF>");
                     //send the data through the socket
                     int bytesSent = sender.Send(msg);
                     //receive the response from the remote device.

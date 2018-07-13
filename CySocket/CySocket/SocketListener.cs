@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Socket_Commons_Library;
+using System;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -59,7 +60,7 @@ namespace CySocket
                         if (data.IndexOf("<EOF>") > -1)
                             break;
                     }
-
+                     
                     //show the data on the console
                     Console.WriteLine("Text received : {0}", data);
 

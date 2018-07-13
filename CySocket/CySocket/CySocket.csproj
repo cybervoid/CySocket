@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Socket_Commons_Library\Socket_Commons_Library.csproj" />
+  </ItemGroup>
+
 </Project>

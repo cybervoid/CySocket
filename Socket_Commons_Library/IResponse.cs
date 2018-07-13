@@ -10,7 +10,7 @@ namespace Socket_Commons_Library
     public interface IResponse<T>
     {
         string response { get; set; }
-        void Process(IRequest<T> request);
+        void Process(IRequest request);
         string ToString();
     }
 }
