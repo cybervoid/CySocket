@@ -7,8 +7,10 @@ namespace Socket_Commons_Library
     /// <summary>
     /// As dynamic data type
     /// </summary>
-    public class Response
+    public interface IResponse<T>
     {
-
+        string response { get; set; }
+        void Process(IRequest<T> request);
+        string ToString();
     }
 }
