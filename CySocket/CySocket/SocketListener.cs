@@ -28,8 +28,7 @@ namespace CySocket
             //establish the local endpoint for the socket
             //dns.GetHostName returns the name of the host running the app
             IPHostEntry iPHostEntry = Dns.GetHostEntry(Dns.GetHostName());
-            //IPAddress ipAddress = iPHostEntry.AddressList.Where(x => x.ToString().StartsWith("10.").);
-            //IPAddress ipAddress = iPHostEntry.AddressList[0];//.Where(x => x.ToString().StartsWith("10.").);
+                        
             IPAddress ipAddress = IPAddress.Parse("127.0.0.1");//ipHostInfo.AddressList[0];
             IPEndPoint localEndpoint = new IPEndPoint(ipAddress, 8080);
             Console.WriteLine($"endpoint: {localEndpoint.ToString()}");
