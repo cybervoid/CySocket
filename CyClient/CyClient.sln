@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyClient", "CyClient\CyClie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyClientTests", "CyClientTests\CyClientTests.csproj", "{341D513C-6008-401D-9B13-24BCE9111AF2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Socket_Commons_Library", "..\Socket_Commons_Library\Socket_Commons_Library.csproj", "{9F882660-73B4-4F16-826D-FEACDC7A17BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{341D513C-6008-401D-9B13-24BCE9111AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{341D513C-6008-401D-9B13-24BCE9111AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{341D513C-6008-401D-9B13-24BCE9111AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F882660-73B4-4F16-826D-FEACDC7A17BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F882660-73B4-4F16-826D-FEACDC7A17BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F882660-73B4-4F16-826D-FEACDC7A17BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F882660-73B4-4F16-826D-FEACDC7A17BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
