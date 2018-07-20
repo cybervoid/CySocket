@@ -9,16 +9,12 @@ namespace CyClient
 {
     public class Client
     {
-        public void Start(Request<IPayload> request)
+        public void Start(Request request)
         {
             Start(request, SocketType.Stream, ProtocolType.Tcp);
-        }
-        //public void Start(IRequest request)
-        //{
-        //    Start(request, SocketType.Stream, ProtocolType.Tcp);
-        //}
+        }        
 
-        public void Start(Request<IPayload> request, SocketType socketType, ProtocolType protocolType)
+        public void Start(Request request, SocketType socketType, ProtocolType protocolType)
         {
             // Data buffer for incoming data.  
             byte[] bytes = new byte[1024];

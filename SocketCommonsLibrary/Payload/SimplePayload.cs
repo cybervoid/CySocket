@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SocketCommonsLibrary.Payload
 {
-    public class SimplePayload : BasePayload
+    public class SimplePayload : BasePayload, IPayload
     {
 
         public string Data { get; set; }

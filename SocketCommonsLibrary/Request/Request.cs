@@ -4,7 +4,7 @@ using System.Text;
 using SocketCommonsLibrary.Payload;
 namespace SocketCommonsLibrary.Request
 {
-    public class Request<T> : IPayload where T : IPayload
+    public class Request
     {
         IPayload _Payload;
 
@@ -12,14 +12,14 @@ namespace SocketCommonsLibrary.Request
         {
 
         }
-        public Request(T payload)
+        public Request(IPayload payload)
         {
             this._Payload = payload; 
         }
 
-        public void ToPayload<T>(string inputData)
+        public void ToPayload(string inputData)
         {
-            _Payload = (IPayload)Newtonsoft.Json.JsonConvert.DeserializeObject<T>(inputData);
+            _Payload = Newtonsoft.Json.JsonConvert.DeserializeObject<BasePayload>(inputData);
         }
 
         public override string ToString()

@@ -63,8 +63,8 @@ namespace CySocket
                     }
 
                     //cast input to payload object
-                    Request<IPayload> request = new Request<IPayload>();
-                    request.ToPayload<IPayload>(data);
+                    Request request = new Request();
+                    request.ToPayload(data);
 
                     //show the data on the console
                     Console.WriteLine("Text received : {0}", data);
