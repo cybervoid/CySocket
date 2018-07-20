@@ -1,4 +1,5 @@
-﻿using Socket_Commons_Library;
+﻿using SocketCommonsLibrary.Payload;
+using SocketCommonsLibrary.Request;
 using System;
 using System.Linq;
 using System.Net;
@@ -60,7 +61,11 @@ namespace CySocket
                         if (data.IndexOf("<EOF>") > -1)
                             break;
                     }
-                     
+
+                    //cast input to payload object
+                    Request<IPayload> request = new Request<IPayload>();
+                    request.ToPayload<IPayload>(data);
+
                     //show the data on the console
                     Console.WriteLine("Text received : {0}", data);
 

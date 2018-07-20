@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Socket_Commons_Library
+namespace SocketCommonsLibrary.Payload
 {
     public interface IPayload
     {
         string ToString();
+        //IPayload ToObject();
     }
 }

@@ -1,15 +1,15 @@
-﻿using System;
+﻿using SocketCommonsLibrary.Payload;
+using SocketCommonsLibrary.Request;
+using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
 using System.Text;
-using Socket_Commons_Library;
 
 namespace CyClient
 {
     public class Client
     {
-        public void Start(Request request)
+        public void Start(Request<IPayload> request)
         {
             Start(request, SocketType.Stream, ProtocolType.Tcp);
         }
@@ -18,7 +18,7 @@ namespace CyClient
         //    Start(request, SocketType.Stream, ProtocolType.Tcp);
         //}
 
-        public void Start(Request request, SocketType socketType, ProtocolType protocolType)
+        public void Start(Request<IPayload> request, SocketType socketType, ProtocolType protocolType)
         {
             // Data buffer for incoming data.  
             byte[] bytes = new byte[1024];

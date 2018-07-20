@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Socket_Commons_Library", "Socket_Commons_Library\Socket_Commons_Library.csproj", "{80395F70-663A-47DC-919C-2E894C9D7E95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketCommonsLibrary", "SocketCommonsLibrary\SocketCommonsLibrary.csproj", "{80395F70-663A-47DC-919C-2E894C9D7E95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

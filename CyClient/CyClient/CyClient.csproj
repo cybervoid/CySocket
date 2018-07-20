@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Socket_Commons_Library\Socket_Commons_Library.csproj" />
+    <ProjectReference Include="..\..\SocketCommonsLibrary\SocketCommonsLibrary.csproj" />
   </ItemGroup>
 
 </Project>
