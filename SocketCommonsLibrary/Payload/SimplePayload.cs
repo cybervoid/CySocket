@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SocketCommonsLibrary.Payload
 {
-    public class SimplePayload : BasePayload<IPayload>
+    public class SimplePayload : BasePayload
     {
 
         public string Data { get; set; }
@@ -12,21 +12,32 @@ namespace SocketCommonsLibrary.Payload
         {
             this.Data = data; 
         }
-        public override IPayload ToObject(string objectString)
+        public override BasePayload ToObject(string objectString)
         {
             try
             {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<IPayload>(objectString);
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<BasePayload>(objectString);
             }
             catch (Exception ex)
             {
                 //Throw exception so consuming application can handle errors 
                 throw ex;
             }
-        
+        }
+        public SimplePayload ToThisObject(string objectString)
+        {
+            try
+            {
+                return (SimplePayload)ToObject(objectString); //Newtonsoft.Json.JsonConvert.DeserializeObject<SimplePayload>(objectString);
+            }
+            catch (Exception ex)
+            {
+                //Throw exception so consuming application can handle errors 
+                throw ex;
+            }
         }
 
-        public override string ToString<IPayload>()
+        public override string ToString()
         {
             try
             {
