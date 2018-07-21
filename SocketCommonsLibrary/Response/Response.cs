@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using SocketCommonsLibrary.Extensions;
 namespace SocketCommonsLibrary.Response
 {
     public class Response : IResponse
@@ -20,12 +20,15 @@ namespace SocketCommonsLibrary.Response
         }
         public void Execute()
         {
-            throw new NotImplementedException();
+            //dynamic d = new 
+            dynamic data = RequestPayload.ToDynamic();
+            string number = (string)data.Data;
+            _ResponseMsg = string.Format("Text received : {0}", number);
         }
 
         public string Send()
         {
-            throw new NotImplementedException();
+            return _ResponseMsg;
         }
     }
 }
