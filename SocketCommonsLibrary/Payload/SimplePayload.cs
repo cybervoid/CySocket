@@ -7,7 +7,7 @@ namespace SocketCommonsLibrary.Payload
     public class SimplePayload : BasePayload, IPayload
     {
 
-        public string Data { get; set; }
+        //public override string Data { get; set; }
         public SimplePayload(string data)
         {
             this.Data = data; 

@@ -1,5 +1,6 @@
 ﻿using SocketCommonsLibrary.Payload;
 using SocketCommonsLibrary.Request;
+using SocketCommonsLibrary.Response;
 using System;
 using System.Linq;
 using System.Net;
@@ -63,13 +64,13 @@ namespace CySocket
                     }
 
                     //cast input to payload object
-                    Request request = new Request();
-                    request.ToPayload(data);
+                    Response response = new Response(data);
 
+                    response.Execute();
                     //show the data on the console
-                    Console.WriteLine("Text received : {0}", data);
-
-                    byte[] msg = Encoding.ASCII.GetBytes(data);
+                    //Console.WriteLine("Text received : {0}", data);
+                    byte[] msg = Encoding.ASCII.GetBytes(response.Send());
+                    //byte[] msg = Encoding.ASCII.GetBytes(data);
 
                     handler.Send(msg);
                     handler.Shutdown(SocketShutdown.Both);

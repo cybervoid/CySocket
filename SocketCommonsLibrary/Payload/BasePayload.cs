@@ -6,9 +6,16 @@ namespace SocketCommonsLibrary.Payload
 {
 
     //public abstract class BasePayload
-    public abstract class BasePayload : IPayload //where T : IPayload
+    public class BasePayload : IPayload //where T : IPayload
     {
-        public abstract string ToString();
-        public abstract BasePayload ToObject(string objectString);
+        public virtual string Data { get; set; }
+        public virtual string ToString()
+        {
+            throw new NotImplementedException();
+        }
+        public virtual BasePayload ToObject(string objectString)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

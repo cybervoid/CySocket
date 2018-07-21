@@ -17,11 +17,19 @@ namespace SocketCommonsLibrary.Request
             this._Payload = payload; 
         }
 
+        /// <summary>
+        /// converts a string to a payload type
+        /// </summary>
+        /// <param name="inputData"></param>
         public void ToPayload(string inputData)
         {
             _Payload = Newtonsoft.Json.JsonConvert.DeserializeObject<BasePayload>(inputData);
         }
 
+        /// <summary>
+        /// Converts the payload to a json string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return _Payload.ToString();
