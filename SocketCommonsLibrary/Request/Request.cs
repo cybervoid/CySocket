@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 using SocketCommonsLibrary.Payload;
 namespace SocketCommonsLibrary.Request
@@ -7,10 +8,19 @@ namespace SocketCommonsLibrary.Request
     public class Request
     {
         IPayload _Payload;
-
+        string _data;
+        public Socket SocketHandler { get; set; }
         public Request()
         {
 
+        }
+        public Request(string payloadAsString)
+        {
+            this._data = payloadAsString;
+        }
+        public Request(string payloadAsString, Socket handler) : this(payloadAsString)
+        {
+            this.SocketHandler = handler;
         }
         public Request(IPayload payload)
         {
