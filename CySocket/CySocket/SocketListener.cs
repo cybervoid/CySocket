@@ -50,7 +50,6 @@ namespace CySocket
                 SocketObj.Ip_Address = IPAddress.Parse("127.0.0.1");
                 SocketObj.Local_Endpoint = new IPEndPoint(SocketObj.Ip_Address, SocketObj.Port);
             }
-
             Console.WriteLine($"listening at endpoint: {SocketObj.Local_Endpoint.ToString()}");
             //create the tcp/ip socket
             _requestCancellationToken = new CancellationToken();
@@ -107,7 +106,6 @@ namespace CySocket
             {
                 Console.WriteLine(ex);
             }
-
         }
 
         private void StartResponder()

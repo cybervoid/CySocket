@@ -13,5 +13,7 @@ namespace CySocket
         public IPHostEntry Ip_Host_Entry { get; set; }
         public IPAddress Ip_Address { get; set; }
         public IPEndPoint Local_Endpoint { get; set; }
+        public int Port { get; set; }
+        public Socket Listener { get; set; }
     }
 }
