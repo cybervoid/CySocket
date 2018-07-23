@@ -52,13 +52,13 @@ namespace CySocket
             }
             Console.WriteLine($"listening at endpoint: {SocketObj.Local_Endpoint.ToString()}");
             //create the tcp/ip socket
-            _requestCancellationToken = new CancellationToken();
-            _requestTask = Task.Factory.StartNew(() => StartListener(), _requestCancellationToken);
+            _requestCancellationTokenSource = new CancellationTokenSource();
+            _requestTask = Task.Factory.StartNew(() => StartListener(), _requestCancellationTokenSource.Token);
         }
 
         public void Terminate()
         {
-            _requestCancellationToken.
+            _requestCancellationTokenSource.Cancel();
         }
 
         private void StartListener()
