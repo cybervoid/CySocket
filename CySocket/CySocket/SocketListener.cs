@@ -25,11 +25,11 @@ namespace CySocket
 
         #region tasking
         Task _requestTask;
-        CancellationToken _requestCancellationToken;
+        CancellationTokenSource _requestCancellationTokenSource;
         Task _responseTask;
-        CancellationToken _responseCancellationToken;
+        //CancellationToken _responseCancellationToken;
         public static ConcurrentQueue<Request> _RequestQueue { get; set; } = new ConcurrentQueue<Request>();
-        public static ConcurrentQueue<Response> _ResponseQueue { get; set; } = new ConcurrentQueue<Response>();
+        //public static ConcurrentQueue<Response> _ResponseQueue { get; set; } = new ConcurrentQueue<Response>();
         #endregion
 
         #region Socket Settings
@@ -58,7 +58,7 @@ namespace CySocket
 
         public void Terminate()
         {
-            //RequestTask.
+            _requestCancellationToken.
         }
 
         private void StartListener()
@@ -118,6 +118,22 @@ namespace CySocket
                 {
                     Thread.Sleep(20);
                     continue;
+                }
+                else
+                {
+                    Request request;
+                    _RequestQueue.TryDequeue(out request);
+                    if (request != null)
+                    {
+                        Response response = new Response(request.ToString(), request.SocketHandler);
+
+                        response.Execute();
+                        //show the data on the console
+                        byte[] msg = Encoding.ASCII.GetBytes(response.Send());
+                        response.SocketHandler.Send(msg);
+                        response.SocketHandler.Shutdown(SocketShutdown.Both);
+                        response.SocketHandler.Close();
+                    }
                 }
             }
         }
