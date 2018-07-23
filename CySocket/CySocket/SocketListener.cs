@@ -79,6 +79,7 @@ namespace CySocket
                         if (handler == null)
                         {
                             System.Threading.Thread.Sleep(10);
+                            continue;
                         }
                         else
                         {
@@ -110,7 +111,15 @@ namespace CySocket
 
         private void StartResponder()
         {
+            while(_responseTask.IsCanceled == false)
+            {
 
+                if(_RequestQueue.IsEmpty == true)
+                {
+                    Thread.Sleep(20);
+                    continue;
+                }
+            }
         }
 
         public static void Start()
