@@ -26,10 +26,7 @@ namespace CySocket
         #region tasking
         Task _requestTask;
         CancellationTokenSource _requestCancellationTokenSource;
-        Task _responseTask;
-        //CancellationToken _responseCancellationToken;
         public static ConcurrentQueue<Request> _RequestQueue { get; set; } = new ConcurrentQueue<Request>();
-        //public static ConcurrentQueue<Response> _ResponseQueue { get; set; } = new ConcurrentQueue<Response>();
         #endregion
 
         #region Socket Settings
@@ -111,7 +108,7 @@ namespace CySocket
 
         private void StartResponder()
         {
-            while(_responseTask.IsCanceled == false)
+            while(_requestTask.IsCanceled == false)
             {
 
                 if(_RequestQueue.IsEmpty == true)
